@@ -1,3 +1,3 @@
 # Sudoo-Readable-Identifier
 
-Identifier for human and mechine
+Identifier for human and machine
