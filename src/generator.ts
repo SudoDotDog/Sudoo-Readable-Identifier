@@ -6,37 +6,14 @@
 
 import { Words } from "@sudoo/words";
 import { SplitedPairIdentifier, SplitedTupleIdentifer } from "./declare";
+import { fixReadableIdentifierGeneratorOptions, ReadableIdentifierGeneratorOptions } from "./options";
 import { splitPairIdentifier, splitTupleIdentifier } from "./util";
-
-export type ReadableIdentifierGeneratorOptions = {
-
-    readonly join: string;
-    readonly capital: boolean;
-    readonly ignoreCase: boolean;
-
-    readonly emptyIdentifierPair: string;
-    readonly emptyIdentifierTuple: string;
-
-    readonly unknownIdentifierPair: string;
-    readonly unknownIdentifierTuple: string;
-};
 
 export class ReadableIdentifierGenerator {
 
     public static from(words: Words, options?: Partial<ReadableIdentifierGeneratorOptions>): ReadableIdentifierGenerator {
 
-        const fixedOptions: ReadableIdentifierGeneratorOptions = {
-
-            join: '-',
-            capital: false,
-            ignoreCase: false,
-            emptyIdentifierPair: '[Empty Identifier]',
-            emptyIdentifierTuple: '[Empty Identifier]',
-            unknownIdentifierPair: '[Unknown Identifier]',
-            unknownIdentifierTuple: '[Unknown Identifier]',
-            ...options,
-        };
-
+        const fixedOptions: ReadableIdentifierGeneratorOptions = fixReadableIdentifierGeneratorOptions(options);
         return new ReadableIdentifierGenerator(words, fixedOptions);
     }
 

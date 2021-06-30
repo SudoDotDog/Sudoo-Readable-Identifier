@@ -6,5 +6,6 @@
 
 export * from "./declare";
 export * from "./generator";
+export * from "./options";
 export * from "./util";
 
