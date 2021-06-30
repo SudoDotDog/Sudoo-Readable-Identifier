@@ -1,6 +1,6 @@
 {
   "name": "@sudoo/readable-identifier",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Identifier for human and machine",
   "directories": {
     "doc": "docs"

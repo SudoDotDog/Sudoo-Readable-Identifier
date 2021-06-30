@@ -93,4 +93,34 @@ describe('Given {ReadableIdentifierGenerator} Class', (): void => {
 
         expect(identifier).to.be.equal("Low-Rush-Criminal");
     });
+
+    it('should be able to generate pair - ignore case - happy', (): void => {
+
+        const generatorIgnoreCase: ReadableIdentifierGenerator = ReadableIdentifierGenerator.from(englishWords, {
+            ignoreCase: true,
+        });
+
+        const generatorNotIgnoreCase: ReadableIdentifierGenerator = ReadableIdentifierGenerator.from(englishWords, {
+            ignoreCase: false,
+        });
+
+        const original: string = "Case Difference";
+        const identifierNotIgnoreCase: string = generatorNotIgnoreCase.generatePair(original);
+        const identifierIgnoreCase: string = generatorIgnoreCase.generatePair(original);
+
+        expect(identifierIgnoreCase).to.be.not.equal(identifierNotIgnoreCase);
+    });
+
+    it('should be able to generate pair - ignore case - sad', (): void => {
+
+        const generator: ReadableIdentifierGenerator = ReadableIdentifierGenerator.from(englishWords, {
+            ignoreCase: false,
+        });
+
+        const original: string = "Case Difference";
+        const identifierNotIgnoreCase: string = generator.generatePair(original);
+        const identifierIgnoreCase: string = generator.generatePair(original);
+
+        expect(identifierIgnoreCase).to.be.equal(identifierNotIgnoreCase);
+    });
 });
