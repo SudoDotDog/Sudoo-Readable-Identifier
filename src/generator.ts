@@ -5,7 +5,6 @@
  */
 
 import { Words } from "@sudoo/words";
-import { englishWords } from "@sudoo/words-english";
 import { SplitedPairIdentifier, SplitedTupleIdentifer } from "./declare";
 import { splitPairIdentifier, splitTupleIdentifier } from "./util";
 
@@ -14,11 +13,6 @@ export class ReadableIdentifierGenerator {
     public static from(words: Words): ReadableIdentifierGenerator {
 
         return new ReadableIdentifierGenerator(words);
-    }
-
-    public static default(): ReadableIdentifierGenerator {
-
-        return new ReadableIdentifierGenerator(englishWords);
     }
 
     private readonly _words: Words;
