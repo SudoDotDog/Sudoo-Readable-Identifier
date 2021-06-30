@@ -16,7 +16,8 @@
   },
   "homepage": "https://github.com/SudoDotDog/Sudoo-Readable-Identifier#readme",
   "dependencies": {
-    "@sudoo/words": "latest"
+    "@sudoo/words": "latest",
+    "@sudoo/words-english": "latest"
   },
   "devDependencies": {
     "@sudoo/io": "^1.8.0",
