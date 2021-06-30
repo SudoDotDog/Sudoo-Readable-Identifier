@@ -49,4 +49,48 @@ describe('Given {ReadableIdentifierGenerator} Class', (): void => {
 
         expect(identifier).to.be.equal("fresh-lock-catamaran");
     });
+
+    it('should be able to generate pair - override join', (): void => {
+
+        const generator: ReadableIdentifierGenerator = ReadableIdentifierGenerator.from(englishWords, {
+            join: '@'
+        });
+
+        const identifier: string = generator.generatePair(chance.string());
+
+        expect(identifier).to.be.equal("exotic@carrot");
+    });
+
+    it('should be able to generate tuple - override join', (): void => {
+
+        const generator: ReadableIdentifierGenerator = ReadableIdentifierGenerator.from(englishWords, {
+            join: '@'
+        });
+
+        const identifier: string = generator.generateTuple(chance.string());
+
+        expect(identifier).to.be.equal("jagged@supply@cormorant");
+    });
+
+    it('should be able to generate pair - capital', (): void => {
+
+        const generator: ReadableIdentifierGenerator = ReadableIdentifierGenerator.from(englishWords, {
+            capital: true,
+        });
+
+        const identifier: string = generator.generatePair(chance.string());
+
+        expect(identifier).to.be.equal("Modern-Door");
+    });
+
+    it('should be able to generate tuple - capital', (): void => {
+
+        const generator: ReadableIdentifierGenerator = ReadableIdentifierGenerator.from(englishWords, {
+            capital: true,
+        });
+
+        const identifier: string = generator.generateTuple(chance.string());
+
+        expect(identifier).to.be.equal("Low-Rush-Criminal");
+    });
 });
