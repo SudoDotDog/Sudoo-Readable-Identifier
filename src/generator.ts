@@ -13,6 +13,12 @@ export type ReadableIdentifierGeneratorOptions = {
     readonly join: string;
     readonly capital: boolean;
     readonly ignoreCase: boolean;
+
+    readonly emptyIdentifierPair: string;
+    readonly emptyIdentifierTuple: string;
+
+    readonly unknownIdentifierPair: string;
+    readonly unknownIdentifierTuple: string;
 };
 
 export class ReadableIdentifierGenerator {
@@ -24,6 +30,10 @@ export class ReadableIdentifierGenerator {
             join: '-',
             capital: false,
             ignoreCase: false,
+            emptyIdentifierPair: '[Empty Identifier]',
+            emptyIdentifierTuple: '[Empty Identifier]',
+            unknownIdentifierPair: '[Unknown Identifier]',
+            unknownIdentifierTuple: '[Unknown Identifier]',
             ...options,
         };
 
@@ -41,6 +51,14 @@ export class ReadableIdentifierGenerator {
 
     public generatePair(identifier: string): string {
 
+        if (typeof identifier !== 'string') {
+            return this._options.unknownIdentifierPair;
+        }
+
+        if (identifier.length <= 0) {
+            return this._options.emptyIdentifierPair;
+        }
+
         const formattedIdentifier: string = this._formatIdentifier(identifier);
         const pair: SplitedPairIdentifier = splitPairIdentifier(formattedIdentifier);
 
@@ -51,6 +69,14 @@ export class ReadableIdentifierGenerator {
     }
 
     public generateTuple(identifier: string): string {
+
+        if (typeof identifier !== 'string') {
+            return this._options.unknownIdentifierTuple;
+        }
+
+        if (identifier.length <= 0) {
+            return this._options.emptyIdentifierTuple;
+        }
 
         const formattedIdentifier: string = this._formatIdentifier(identifier);
         const tuple: SplitedTupleIdentifer = splitTupleIdentifier(formattedIdentifier);
