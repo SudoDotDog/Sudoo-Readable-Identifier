@@ -25,7 +25,4 @@ export class ReadableIdentifierGenerator {
 
         this._words = words;
     }
-
-    public generatePair(identifier: string): string {
-    }
 }
