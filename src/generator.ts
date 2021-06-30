@@ -12,6 +12,7 @@ export type ReadableIdentifierGeneratorOptions = {
 
     readonly join: string;
     readonly capital: boolean;
+    readonly ignoreCase: boolean;
 };
 
 export class ReadableIdentifierGenerator {
@@ -22,6 +23,7 @@ export class ReadableIdentifierGenerator {
 
             join: '-',
             capital: false,
+            ignoreCase: false,
             ...options,
         };
 
@@ -39,7 +41,8 @@ export class ReadableIdentifierGenerator {
 
     public generatePair(identifier: string): string {
 
-        const pair: SplitedPairIdentifier = splitPairIdentifier(identifier);
+        const formattedIdentifier: string = this._formatIdentifier(identifier);
+        const pair: SplitedPairIdentifier = splitPairIdentifier(formattedIdentifier);
 
         const adjective: string = this._getAdjective(pair.left);
         const noun: string = this._getNoun(pair.right);
@@ -49,7 +52,8 @@ export class ReadableIdentifierGenerator {
 
     public generateTuple(identifier: string): string {
 
-        const tuple: SplitedTupleIdentifer = splitTupleIdentifier(identifier);
+        const formattedIdentifier: string = this._formatIdentifier(identifier);
+        const tuple: SplitedTupleIdentifer = splitTupleIdentifier(formattedIdentifier);
 
         const adjective: string = this._getAdjective(tuple.left);
         const verb: string = this._getVerb(tuple.middle);
@@ -86,6 +90,14 @@ export class ReadableIdentifierGenerator {
             return this._capitalize(noun);
         }
         return noun;
+    }
+
+    private _formatIdentifier(identifier: string): string {
+
+        if (this._options.ignoreCase) {
+            return identifier.toLowerCase();
+        }
+        return identifier;
     }
 
     private _capitalize(value: string): string {
