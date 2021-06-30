@@ -15,6 +15,9 @@
     "url": "https://github.com/SudoDotDog/Sudoo-Readable-Identifier/issues"
   },
   "homepage": "https://github.com/SudoDotDog/Sudoo-Readable-Identifier#readme",
+  "dependencies": {
+    "@sudoo/words": "latest"
+  },
   "devDependencies": {
     "@sudoo/io": "^1.8.0",
     "@sudoo/triforce": "^2.8.27"
