@@ -19,8 +19,9 @@
     "@sudoo/words": "latest"
   },
   "devDependencies": {
-    "@sudoo/io": "^1.8.0",
-    "@sudoo/triforce": "^2.8.27",
+    "@sudoo/build-utils": "^1.0.0",
+    "@sudoo/license": "^1.1.0",
+    "@sudoo/triforce": "^2.8.29",
     "@sudoo/words-english": "^1.0.1"
   },
   "nyc": {
