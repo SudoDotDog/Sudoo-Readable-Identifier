@@ -1,6 +1,6 @@
 # Sudoo-Readable-Identifier
 
-[![Build Status](https://travis-ci.com/SudoDotDog/Readable-Identifier.svg?branch=master)](https://travis-ci.com/SudoDotDog/Readable-Identifier)
+[![Continuous Integration](https://github.com/SudoDotDog/Sudoo-Readable-Identifier/actions/workflows/ci.yml/badge.svg)](https://github.com/SudoDotDog/Sudoo-Readable-Identifier/actions/workflows/ci.yml)
 [![codecov](https://codecov.io/gh/SudoDotDog/Readable-Identifier/branch/master/graph/badge.svg)](https://codecov.io/gh/SudoDotDog/Readable-Identifier)
 [![npm version](https://badge.fury.io/js/%40sudoo%2Freadable-identifier.svg)](https://www.npmjs.com/package/@sudoo/readable-identifier)
 [![downloads](https://img.shields.io/npm/dm/@sudoo/readable-identifier.svg)](https://www.npmjs.com/package/@sudoo/readable-identifier)
